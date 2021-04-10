@@ -13,7 +13,11 @@ function randomColor() {
     document.body.style.backgroundColor = hexColor;
 }
 
-function randomNumber() {
+randomNumber = () => {
     return Math.floor(Math.random() * hex.length);
 }
+
+// function randomNumber() {
+//     return Math.floor(Math.random() * hex.length);
+// }
 
