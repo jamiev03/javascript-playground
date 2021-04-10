@@ -17,6 +17,6 @@ btn.addEventListener('click', () => {
 //     color.textContent = colors[randomNumber];
 // })
 
-function randomNumberGenerator() {
+randomNumberGenerator = () => {
     return Math.floor(Math.random() * colors.length);
 }
