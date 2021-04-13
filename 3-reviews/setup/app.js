@@ -44,12 +44,12 @@ const author = document.getElementById('author');
 const job = document.getElementById('job');
 const info = document.getElementById('info');
 
-const prevBtn = document.querySelector('.prev-btn')
-const nextBtn = document.querySelector('.next-btn')
-const randomBtn = document.querySelector('.random-btn')
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const randomBtn = document.querySelector('.random-btn');
 
 // Set starting item
-let currentItem = 3;
+let currentItem = 0;
 
 //load initial item
 window.addEventListener('DOMContentLoaded', () => {
@@ -64,3 +64,28 @@ function showPerson(person) {
   job.textContent = item.job;
   info.textContent = item.text;
 }
+
+//Show next person
+nextBtn.addEventListener('click', () => {
+  currentItem++
+  if(currentItem > reviews.length - 1) {
+    currentItem = 0;
+  }
+    showPerson(currentItem);
+})
+
+//show prev person
+prevBtn.addEventListener('click', () => {
+  currentItem--;
+  if(currentItem < 0) {
+    currentItem = reviews.length - 1;
+  }
+  showPerson(currentItem);
+})
+
+randomBtn.addEventListener('click', () => {
+  const randomNum = Math.floor(Math.random() * reviews.length)
+  currentItem = randomNum;
+  showPerson(currentItem);
+  console.log(currentItem);
+})
