@@ -5,6 +5,8 @@ const btns = document.querySelectorAll('.question-btn');
 
 btns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-        console.log(e.currentTarget);
+        const question = e.currentTarget.parentElement.parentElement;
+        console.log(question);
+        question.console.toggle('show-text')
     })
 })
