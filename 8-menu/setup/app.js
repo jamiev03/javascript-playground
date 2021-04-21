@@ -76,10 +76,25 @@ const menu = [
 const sectionCenter = document.querySelector('.section-center');
 
 window.addEventListener('DOMContentLoaded', () => {
-  let displayMenu = menu.map((item) => {
-    // console.log(item);
-    return `<h1>${item.title}</h1>`;
-  })
+  displayMenuItems(menu);
+});
 
-  console.log(displayMenu);
-})
+function displayMenuItems(menuItems) {
+  let displayMenu = menuItems.map((item) => {
+    // console.log(item);
+    return `<article class="menu-item">
+    <img src="${item.img}" class="photo" alt="${item.title}">
+    <div class="item-info">
+      <header>
+        <h4>${item.title}</h4>
+        <h4 class="price">${item.price}</h4>
+      </header>
+      <p class="item-text">${item.desc}</p>
+    </div>
+  </article>`;
+  });
+  // join using empty "" in order to separate items. Otherwise you get commas.
+  displayMenu = displayMenu.join("");
+  //Place in section center now.
+  sectionCenter.innerHTML = displayMenu;
+}
